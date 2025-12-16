@@ -1,18 +1,28 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" xml:lang="en" dir="ltr">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="A brutally honest manifesto about modern web design in 2025 - Pure HTML5 with zero CSS or JavaScript.">
+    content="A brutally honest manifesto about modern web design in 2025 - Pure HTML5 with zero CSS or JavaScript. Demonstrates 75+ HTML5 features including semantic elements, native forms, accessibility, and zero dependencies.">
   <meta name="author" content="HTML5 Purist">
-  <meta name="keywords" content="HTML5, semantic HTML, accessibility, web standards, zero dependencies">
-  <meta name="robots" content="index, follow">
+  <meta name="keywords"
+    content="HTML5, semantic HTML, accessibility, web standards, zero dependencies, native forms, ARIA, WCAG, web performance">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#0066cc">
   <meta name="color-scheme" content="light dark">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="format-detection" content="telephone=no">
+  <meta property="og:title" content="Best Motherfreaking Website - Pure HTML5">
+  <meta property="og:description"
+    content="A manifesto demonstrating 75+ HTML5 features with zero CSS or JavaScript dependencies. Pure semantic HTML, native accessibility, and maximum performance.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="#">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Best Motherfreaking Website - Pure HTML5">
+  <meta name="twitter:description"
+    content="A manifesto demonstrating 75+ HTML5 features with zero CSS or JavaScript dependencies.">
   <link rel="canonical" href="#">
   <link rel="icon" type="image/svg+xml"
     href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
@@ -22,10 +32,13 @@
 <body>
   <a href="#main-content">Skip to main content</a>
 
-  <header>
-    <nav aria-label="Main navigation">
+  <header role="banner">
+    <nav aria-label="Main navigation" role="navigation">
       <strong itemscope itemtype="https://schema.org/WebSite">
         <span itemprop="name">Best Motherfreaking Website</span>
+        <meta itemprop="url" content="#">
+        <meta itemprop="description"
+          content="Pure HTML5 manifesto demonstrating 75+ native features with zero dependencies">
       </strong>
       <menu type="toolbar">
         <li><a href="#features" rel="section">Features</a></li>
@@ -38,7 +51,7 @@
     <nav aria-label="Breadcrumb navigation">
       <ol itemscope itemtype="https://schema.org/BreadcrumbList">
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-          <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+          <a itemprop="item" href="#"><span itemprop="name">Home</span></a>
           <meta itemprop="position" content="1">
         </li>
         <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
@@ -49,14 +62,18 @@
     </nav>
   </header>
 
-  <main id="main-content">
-    <article>
+  <main id="main-content" role="main">
+    <article itemscope itemtype="https://schema.org/WebPage">
       <header>
-        <h1>Best Motherfreaking Website</h1>
-        <p><time datetime="2025-12-15">December 15, 2025</time> Edition: Maximum HTML5 + Zero Dependencies</p>
+        <h1 itemprop="name">Best Motherfreaking Website</h1>
+        <p><time datetime="2025-12-15" itemprop="datePublished">December 15, 2025</time> Edition: Maximum HTML5 + Zero
+          Dependencies</p>
+        <meta itemprop="description"
+          content="A manifesto demonstrating 75+ HTML5 features with zero CSS or JavaScript dependencies">
+        <meta itemprop="inLanguage" content="en">
       </header>
 
-      <aside role="status">
+      <aside role="status" aria-live="polite">
         <strong>Now with:</strong> Pure semantic HTML5, native forms, proper accessibility tree, and <mark>zero CSS,
           zero JavaScript</mark>.
       </aside>
@@ -71,14 +88,14 @@
           </colgroup>
           <thead>
             <tr>
-              <th scope="col">Metric</th>
-              <th scope="col">Value</th>
+              <th scope="col" id="metric-col">Metric</th>
+              <th scope="col" id="value-col">Value</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Uncompressed Size</th>
-              <td>~59<abbr title="Kilobytes">KB</abbr></td>
+              <td>~62<abbr title="Kilobytes">KB</abbr></td>
             </tr>
             <tr>
               <th scope="row">JavaScript Dependencies</th>
@@ -104,8 +121,8 @@
         </table>
       </section>
 
-      <section>
-        <h2>You're Still Overcomplicating This</h2>
+      <section aria-labelledby="overcomplicating-heading">
+        <h2 id="overcomplicating-heading">You're Still Overcomplicating This</h2>
         <p>It's 2025 and we haven't learned <del>anything</del> <ins>much</ins>. You're probably running a
           <code>Next.js</code> project with 47 dependencies just to display a paragraph of text. Your <code>Vite</code>
           build takes longer than it takes to read <cite>War and Peace</cite>.
@@ -148,7 +165,7 @@
           <dialog id="example-dialog">
             <form method="dialog">
               <p>This is a native HTML5 dialog! No JavaScript needed.</p>
-              <button type="submit">Close</button>
+              <button type="submit" aria-label="Close dialog">Close</button>
             </form>
           </dialog>
           <p>To open this dialog, use: <code>document.getElementById('example-dialog').showModal()</code> in browser
@@ -196,9 +213,11 @@
           <p>Display calculated or form-derived values. The <code>&lt;output&gt;</code> element is semantically correct,
             though dynamic updates require JavaScript.</p>
           <form>
-            <input type="number" id="a" name="a" value="10"> +
-            <input type="number" id="b" name="b" value="20"> =
-            <output name="result" for="a b">30</output>
+            <label for="a">First Number</label>
+            <input type="number" id="a" name="a" value="10" aria-label="First number for calculation"> +
+            <label for="b">Second Number</label>
+            <input type="number" id="b" name="b" value="20" aria-label="Second number for calculation"> =
+            <output name="result" for="a b" aria-label="Calculation result">30</output>
             <small>Pure HTML5 structure - would update dynamically with JavaScript</small>
           </form>
         </article>
@@ -357,8 +376,8 @@
               <input type="text" id="pattern-val" name="pattern" pattern="[A-Za-z]{3}[0-9]{3}" placeholder="ABC123"
                 title="Three letters followed by three numbers">
 
-              <button type="submit">Validate Form</button>
-              <button type="reset">Reset</button>
+              <button type="submit" aria-label="Submit form for validation">Validate Form</button>
+              <button type="reset" aria-label="Reset all form fields">Reset</button>
             </fieldset>
           </form>
         </article>
@@ -544,27 +563,27 @@
             </colgroup>
             <thead>
               <tr>
-                <th scope="col" rowspan="2">Category</th>
+                <th scope="col" rowspan="2" id="category-header">Category</th>
                 <th scope="colgroup" colspan="2">Metrics</th>
-                <th scope="col" rowspan="2">Status</th>
+                <th scope="col" rowspan="2" id="status-header">Status</th>
               </tr>
               <tr>
-                <th scope="col">Performance</th>
-                <th scope="col">Accessibility</th>
+                <th scope="col" id="perf-header">Performance</th>
+                <th scope="col" id="a11y-header">Accessibility</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <th scope="row" headers="category">HTML5</th>
-                <td headers="perf">100%</td>
-                <td headers="a11y">100%</td>
-                <td headers="status">Excellent</td>
+                <th scope="row" id="html5-row">HTML5</th>
+                <td headers="perf-header html5-row">100%</td>
+                <td headers="a11y-header html5-row">100%</td>
+                <td headers="status-header html5-row">Excellent</td>
               </tr>
               <tr>
-                <th scope="row" headers="category">JavaScript-Heavy</th>
-                <td headers="perf">40%</td>
-                <td headers="a11y">60%</td>
-                <td headers="status">Poor</td>
+                <th scope="row" id="js-heavy-row">JavaScript-Heavy</th>
+                <td headers="perf-header js-heavy-row">40%</td>
+                <td headers="a11y-header js-heavy-row">60%</td>
+                <td headers="status-header js-heavy-row">Poor</td>
               </tr>
             </tbody>
             <tfoot>
@@ -697,10 +716,12 @@
               <form action="/default" method="post">
                 <input type="text" name="data" value="test">
                 <button type="submit">Default Submit</button>
-                <button type="submit" formaction="/alternate" formmethod="get" formtarget="_blank">Alternate Action
-                  (GET, new tab)</button>
-                <button type="submit" formenctype="multipart/form-data">Multipart Form Data</button>
-                <button type="submit" formnovalidate>Submit Without Validation</button>
+                <button type="submit" formaction="/alternate" formmethod="get" formtarget="_blank"
+                  aria-label="Submit form with alternate action in new tab">Alternate Action (GET, new tab)</button>
+                <button type="submit" formenctype="multipart/form-data"
+                  aria-label="Submit form as multipart data">Multipart Form Data</button>
+                <button type="submit" formnovalidate aria-label="Submit form without validation">Submit Without
+                  Validation</button>
               </form>
             </dd>
 
@@ -937,7 +958,7 @@
           <dl>
             <dt><code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code></dt>
             <dd>
-              <button aria-label="Close dialog">×</button>
+              <button aria-label="Close dialog" title="Close dialog">×</button>
               <button aria-labelledby="button-label">Action</button>
               <span id="button-label" hidden>Perform main action</span>
               <input type="text" aria-describedby="help-text" placeholder="Input with description">
@@ -960,7 +981,8 @@
 
             <dt><code>aria-expanded</code>, <code>aria-controls</code></dt>
             <dd>
-              <button aria-expanded="false" aria-controls="expandable-content">Toggle</button>
+              <button aria-expanded="false" aria-controls="expandable-content"
+                aria-label="Toggle expandable content">Toggle</button>
               <div id="expandable-content" hidden>Content controlled by button</div>
               <small>Describes relationship between controls and content</small>
             </dd>
@@ -994,16 +1016,16 @@
           </colgroup>
           <thead>
             <tr>
-              <th scope="col">Aspect</th>
-              <th scope="col">JavaScript-Heavy</th>
-              <th scope="col">Pure HTML5</th>
+              <th scope="col" id="aspect-col">Aspect</th>
+              <th scope="col" id="js-heavy-col">JavaScript-Heavy</th>
+              <th scope="col" id="html5-col">Pure HTML5</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <th scope="row">Bundle Size</th>
               <td>2.3<abbr title="Megabytes">MB</abbr>+</td>
-              <td>&lt;59<abbr title="Kilobytes">KB</abbr></td>
+              <td>&lt;62<abbr title="Kilobytes">KB</abbr></td>
             </tr>
             <tr>
               <th scope="row">Load Time</th>
@@ -1054,8 +1076,8 @@
         </table>
       </section>
 
-      <section>
-        <h2>What You Should Actually Do</h2>
+      <section aria-labelledby="should-do-heading">
+        <h2 id="should-do-heading">What You Should Actually Do</h2>
         <details open>
           <summary><strong>The HTML5-First Priority Stack</strong></summary>
           <ol>
@@ -1103,8 +1125,8 @@
         </details>
       </section>
 
-      <section id="demo">
-        <h2>HTML5 Feature Showcase</h2>
+      <section id="demo" aria-labelledby="demo-heading">
+        <h2 id="demo-heading">HTML5 Feature Showcase</h2>
 
         <article>
           <header>
@@ -1132,8 +1154,9 @@
                 <input type="hidden" name="hidden" value="secret-value">
               </label>
 
-              <button type="submit" formaction="/alternate" formmethod="get">Alternate Submit</button>
-              <button type="reset">Reset Form</button>
+              <button type="submit" formaction="/alternate" formmethod="get"
+                aria-label="Submit form with alternate action">Alternate Submit</button>
+              <button type="reset" aria-label="Reset all form fields">Reset Form</button>
             </fieldset>
           </form>
         </article>
@@ -1211,17 +1234,17 @@
               <textarea id="textarea-input2" name="textarea" rows="4" cols="50" wrap="soft"></textarea>
 
               <label for="button-input">Button</label>
-              <button type="button" id="button-input">Button</button>
+              <button type="button" id="button-input" aria-label="Example button">Button</button>
 
-              <button type="submit">Submit</button>
-              <button type="reset">Reset</button>
+              <button type="submit" aria-label="Submit form">Submit</button>
+              <button type="reset" aria-label="Reset form fields">Reset</button>
             </fieldset>
           </form>
         </article>
       </section>
 
-      <section>
-        <h2>Will You Listen?</h2>
+      <section aria-labelledby="will-listen-heading">
+        <h2 id="will-listen-heading">Will You Listen?</h2>
         <p>Probably not. You'll read this, nod in agreement, then reach for <code>Next.js</code> anyway because your
           team uses it. You'll add <code>TypeScript</code>. You'll add <code>Tailwind</code>. You'll add a state
           management library.</p>
@@ -1240,6 +1263,9 @@
             <p>By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">HTML5
                   Purist</span></span>,
               Published <time itemprop="datePublished" datetime="2025-12-15">December 15, 2025</time></p>
+            <meta itemprop="dateModified" content="2025-12-16">
+            <meta itemprop="inLanguage" content="en">
+            <meta itemprop="isAccessibleForFree" content="True">
           </header>
           <blockquote cite="https://en.wikipedia.org/wiki/Dieter_Rams" itemprop="citation">
             <p><strong>"Good design is as little design as possible."</strong></p>
@@ -1265,8 +1291,8 @@
         </aside>
       </section>
 
-      <section>
-        <h2>HTML5 Structure Power</h2>
+      <section aria-labelledby="structure-power-heading">
+        <h2 id="structure-power-heading">HTML5 Structure Power</h2>
         <article>
           <header>
             <h3>Nested Articles Example</h3>
@@ -1300,7 +1326,7 @@
     </article>
   </main>
 
-  <footer>
+  <footer role="contentinfo">
     <article itemscope itemtype="https://schema.org/WebSite">
       <header>
         <h3>About This Site</h3>
@@ -1309,7 +1335,7 @@
         <dt>Created</dt>
         <dd><time datetime="2025-12-15">December 15, 2025</time></dd>
         <dt>Page Size</dt>
-        <dd>~59<abbr title="Kilobytes">KB</abbr> (uncompressed, ~14<abbr title="Kilobytes">KB</abbr> gzipped)</dd>
+        <dd>~62<abbr title="Kilobytes">KB</abbr> (uncompressed, ~15<abbr title="Kilobytes">KB</abbr> gzipped)</dd>
         <dt>JavaScript Required</dt>
         <dd><strong>0 bytes</strong> (fully functional)</dd>
         <dt>CSS Required</dt>
