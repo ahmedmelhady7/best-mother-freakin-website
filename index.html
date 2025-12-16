@@ -9,6 +9,20 @@
   <meta name="author" content="HTML5 Purist">
   <meta name="keywords" content="HTML5, semantic HTML, accessibility, web standards, zero dependencies">
   <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0066cc">
+  <meta name="color-scheme" content="light dark">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="canonical" href="https://example.com/test.html">
+  <link rel="alternate" hreflang="en" href="https://example.com/test.html">
+  <link rel="alternate" hreflang="x-default" href="https://example.com/test.html">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="preconnect" href="https://example.com">
+  <link rel="dns-prefetch" href="https://example.com">
+  <base target="_blank" href="https://example.com/">
   <title>Best Motherfreaking Website - Pure HTML5</title>
 </head>
 
@@ -17,14 +31,28 @@
 
   <header>
     <nav aria-label="Main navigation">
-      <strong>Best Motherfreaking Website</strong>
-      <menu>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#comparison">Comparison</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#demo">Demos</a></li>
-        <li><a href="#about">About</a></li>
+      <strong itemscope itemtype="https://schema.org/WebSite">
+        <span itemprop="name">Best Motherfreaking Website</span>
+      </strong>
+      <menu type="toolbar">
+        <li><a href="#features" rel="section">Features</a></li>
+        <li><a href="#comparison" rel="section">Comparison</a></li>
+        <li><a href="#faq" rel="section">FAQ</a></li>
+        <li><a href="#demo" rel="section">Demos</a></li>
+        <li><a href="#about" rel="section">About</a></li>
       </menu>
+    </nav>
+    <nav aria-label="Breadcrumb navigation">
+      <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <a itemprop="item" href="/"><span itemprop="name">Home</span></a>
+          <meta itemprop="position" content="1">
+        </li>
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name">Pure HTML5</span>
+          <meta itemprop="position" content="2">
+        </li>
+      </ol>
     </nav>
   </header>
 
@@ -57,7 +85,7 @@
           <tbody>
             <tr>
               <th scope="row">Uncompressed Size</th>
-              <td>~32<abbr title="Kilobytes">KB</abbr></td>
+              <td>~57<abbr title="Kilobytes">KB</abbr></td>
             </tr>
             <tr>
               <th scope="row">JavaScript Dependencies</th>
@@ -505,6 +533,449 @@
             </dd>
           </dl>
         </article>
+
+        <article>
+          <header>
+            <h3>Advanced Table Features</h3>
+          </header>
+          <p>HTML5 tables have powerful semantic features:</p>
+          <table>
+            <caption>Complex Table with rowspan, colspan, and headers</caption>
+            <colgroup>
+              <col span="2">
+              <col>
+            </colgroup>
+            <thead>
+              <tr>
+                <th scope="col" rowspan="2">Category</th>
+                <th scope="colgroup" colspan="2">Metrics</th>
+                <th scope="col" rowspan="2">Status</th>
+              </tr>
+              <tr>
+                <th scope="col">Performance</th>
+                <th scope="col">Accessibility</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row" headers="category">HTML5</th>
+                <td headers="perf">100%</td>
+                <td headers="a11y">100%</td>
+                <td headers="status">Excellent</td>
+              </tr>
+              <tr>
+                <th scope="row" headers="category">JavaScript-Heavy</th>
+                <td headers="perf">40%</td>
+                <td headers="a11y">60%</td>
+                <td headers="status">Poor</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="3">Average</th>
+                <td>70%</td>
+              </tr>
+            </tfoot>
+          </table>
+          <small>Uses <code>rowspan</code>, <code>colspan</code>, <code>headers</code>, <code>scope</code>,
+            <code>colgroup</code>, <code>thead</code>, <code>tbody</code>, <code>tfoot</code></small>
+        </article>
+
+        <article>
+          <header>
+            <h3>Advanced List Features</h3>
+          </header>
+          <dl>
+            <dt><code>start</code> and <code>reversed</code> attributes on <code>&lt;ol&gt;</code></dt>
+            <dd>
+              <p>Ordered list starting at 5:</p>
+              <ol start="5">
+                <li>Fifth item</li>
+                <li>Sixth item</li>
+                <li>Seventh item</li>
+              </ol>
+              <p>Reversed ordered list:</p>
+              <ol reversed start="3">
+                <li>Third item</li>
+                <li>Second item</li>
+                <li>First item</li>
+              </ol>
+            </dd>
+
+            <dt><code>value</code> attribute on <code>&lt;li&gt;</code></dt>
+            <dd>
+              <ol>
+                <li value="10">Item 10 (custom value)</li>
+                <li>Item 11 (automatic)</li>
+                <li value="5">Item 5 (custom value, resets counter)</li>
+                <li>Item 6 (continues from 5)</li>
+              </ol>
+            </dd>
+
+            <dt><code>type</code> attribute for list markers</dt>
+            <dd>
+              <ol type="A">
+                <li>Type A</li>
+                <li>Type B</li>
+              </ol>
+              <ol type="I">
+                <li>Type I (Roman)</li>
+                <li>Type II</li>
+              </ol>
+              <ul type="square">
+                <li>Square bullet</li>
+                <li>Square bullet</li>
+              </ul>
+            </dd>
+
+            <dt>Multiple terms or definitions in <code>&lt;dl&gt;</code></dt>
+            <dd>
+              <dl>
+                <dt>HTML</dt>
+                <dt>HyperText Markup Language</dt>
+                <dd>The standard markup language for web pages</dd>
+
+                <dt>CSS</dt>
+                <dd>Cascading Style Sheets</dd>
+                <dd>Used for styling HTML documents</dd>
+              </dl>
+            </dd>
+
+            <dt>Nested lists for complex structures</dt>
+            <dd>
+              <ul>
+                <li>First level
+                  <ol>
+                    <li>Second level (numbered)</li>
+                    <li>Second level item 2</li>
+                  </ol>
+                </li>
+                <li>First level item 2</li>
+              </ul>
+            </dd>
+          </dl>
+        </article>
+
+        <article>
+          <header>
+            <h3>Advanced Form Attributes</h3>
+          </header>
+          <dl>
+            <dt><code>autofocus</code> - Focus on page load</dt>
+            <dd>
+              <input type="text" autofocus placeholder="This input gets focus automatically">
+              <small>Only one element per page should have autofocus</small>
+            </dd>
+
+            <dt><code>autocomplete</code> - Browser autocomplete hints</dt>
+            <dd>
+              <form>
+                <label for="name-autocomplete">Full Name</label>
+                <input type="text" id="name-autocomplete" name="name" autocomplete="name">
+
+                <label for="email-autocomplete">Email</label>
+                <input type="email" id="email-autocomplete" name="email" autocomplete="email">
+
+                <label for="address-autocomplete">Street Address</label>
+                <input type="text" id="address-autocomplete" name="address" autocomplete="street-address">
+
+                <label for="country-autocomplete">Country</label>
+                <input type="text" id="country-autocomplete" name="country" autocomplete="country">
+              </form>
+              <small>Helps browsers provide smart autocomplete suggestions</small>
+            </dd>
+
+            <dt><code>form</code> attribute - Associate input with form outside</dt>
+            <dd>
+              <input type="text" name="external" form="external-form" placeholder="This input belongs to form below">
+              <form id="external-form">
+                <button type="submit">Submit</button>
+              </form>
+            </dd>
+
+            <dt><code>formaction</code>, <code>formmethod</code>, <code>formenctype</code>, <code>formtarget</code>,
+              <code>formnovalidate</code></dt>
+            <dd>
+              <form action="/default" method="post">
+                <input type="text" name="data" value="test">
+                <button type="submit">Default Submit</button>
+                <button type="submit" formaction="/alternate" formmethod="get" formtarget="_blank">Alternate Action
+                  (GET, new tab)</button>
+                <button type="submit" formenctype="multipart/form-data">Multipart Form Data</button>
+                <button type="submit" formnovalidate>Submit Without Validation</button>
+              </form>
+            </dd>
+
+            <dt><code>multiple</code> - Multiple file/email/select selections</dt>
+            <dd>
+              <label for="files-multiple">Select Multiple Files</label>
+              <input type="file" id="files-multiple" name="files" multiple accept="image/*">
+
+              <label for="email-multiple">Multiple Email Addresses</label>
+              <input type="email" id="email-multiple" name="emails" multiple
+                placeholder="email1@example.com, email2@example.com">
+
+              <label for="select-multiple">Multiple Selection</label>
+              <select id="select-multiple" name="options" multiple size="4">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+              </select>
+              <small>Hold Ctrl/Cmd to select multiple options</small>
+            </dd>
+
+            <dt><code>inputmode</code> - Mobile keyboard hints</dt>
+            <dd>
+              <label for="numeric-keyboard">Numeric Keyboard</label>
+              <input type="text" id="numeric-keyboard" inputmode="numeric" placeholder="Numbers only keyboard">
+
+              <label for="tel-keyboard">Telephone Keyboard</label>
+              <input type="tel" id="tel-keyboard" inputmode="tel" placeholder="Phone keyboard">
+
+              <label for="email-keyboard">Email Keyboard</label>
+              <input type="email" id="email-keyboard" inputmode="email" placeholder="Email keyboard with @">
+
+              <label for="url-keyboard">URL Keyboard</label>
+              <input type="url" id="url-keyboard" inputmode="url" placeholder="URL keyboard with /">
+
+              <label for="decimal-keyboard">Decimal Keyboard</label>
+              <input type="text" id="decimal-keyboard" inputmode="decimal" placeholder="Decimal numbers">
+            </dd>
+
+            <dt><code>readonly</code> and <code>disabled</code> attributes</dt>
+            <dd>
+              <label for="readonly-input">Readonly (submitted with form)</label>
+              <input type="text" id="readonly-input" name="readonly" value="Cannot edit, but submits" readonly>
+
+              <label for="disabled-input">Disabled (not submitted)</label>
+              <input type="text" id="disabled-input" name="disabled" value="Cannot edit or submit" disabled>
+
+              <label>
+                <input type="checkbox" name="agree" disabled checked>
+                Pre-checked disabled checkbox
+              </label>
+            </dd>
+
+            <dt><code>size</code> and <code>maxlength</code> attributes</dt>
+            <dd>
+              <label for="sized-input">Input with size (width hint)</label>
+              <input type="text" id="sized-input" size="30" maxlength="50" placeholder="30 chars wide, max 50 chars">
+            </dd>
+
+            <dt>Form <code>novalidate</code> and field <code>formnovalidate</code></dt>
+            <dd>
+              <form novalidate>
+                <label for="no-validation-email">Email (no validation)</label>
+                <input type="email" id="no-validation-email" name="email" placeholder="invalid-email">
+                <button type="submit">Submit Without Validation</button>
+              </form>
+            </dd>
+
+            <dt>Form <code>enctype</code> for different submission types</dt>
+            <dd>
+              <form enctype="application/x-www-form-urlencoded">
+                <p>Default: <code>application/x-www-form-urlencoded</code></p>
+                <button type="submit">Submit</button>
+              </form>
+              <form enctype="multipart/form-data">
+                <p>For file uploads: <code>multipart/form-data</code></p>
+                <input type="file" name="file">
+                <button type="submit">Submit</button>
+              </form>
+              <form enctype="text/plain">
+                <p>Plain text: <code>text/plain</code></p>
+                <button type="submit">Submit</button>
+              </form>
+            </dd>
+          </dl>
+        </article>
+
+        <article>
+          <header>
+            <h3>Image and Media Attributes</h3>
+          </header>
+          <dl>
+            <dt><code>loading="lazy"</code> - Native lazy loading</dt>
+            <dd>
+              <img src="https://via.placeholder.com/400x300" alt="Lazy loaded image" loading="lazy" width="400"
+                height="300">
+              <small>Images load only when scrolled into viewport</small>
+            </dd>
+
+            <dt><code>decoding="async"</code> - Async image decoding</dt>
+            <dd>
+              <img src="https://via.placeholder.com/300x200" alt="Async decoded" decoding="async" width="300"
+                height="200">
+              <small>Decodes image asynchronously without blocking</small>
+            </dd>
+
+            <dt><code>srcset</code> and <code>sizes</code> - Responsive images</dt>
+            <dd>
+              <img src="https://via.placeholder.com/400"
+                srcset="https://via.placeholder.com/400 400w, https://via.placeholder.com/800 800w, https://via.placeholder.com/1200 1200w"
+                sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px" alt="Responsive image" width="400">
+              <small>Browser chooses appropriate image size based on viewport</small>
+            </dd>
+
+            <dt><code>width</code> and <code>height</code> - Prevent layout shift</dt>
+            <dd>
+              <img src="https://via.placeholder.com/200x150" alt="Fixed dimensions" width="200" height="150">
+              <small>Reserves space before image loads (prevents Cumulative Layout Shift)</small>
+            </dd>
+
+            <dt><code>crossorigin</code> - CORS for images</dt>
+            <dd>
+              <img src="https://via.placeholder.com/100" alt="CORS image" crossorigin="anonymous" width="100"
+                height="100">
+              <small>Allows cross-origin images to be used with canvas</small>
+            </dd>
+
+            <dt><code>usemap</code> - Image maps</dt>
+            <dd>
+              <img src="https://via.placeholder.com/300x200" alt="Image map" usemap="#imagemap" width="300"
+                height="200">
+              <map name="imagemap">
+                <area shape="rect" coords="0,0,150,100" href="#demo" alt="Top left area">
+                <area shape="rect" coords="150,0,300,100" href="#features" alt="Top right area">
+                <area shape="circle" coords="150,150,50" href="#faq" alt="Center circle">
+              </map>
+              <small>Clickable regions on images - pure HTML5!</small>
+            </dd>
+          </dl>
+        </article>
+
+        <article>
+          <header>
+            <h3>Embedded Content</h3>
+          </header>
+          <dl>
+            <dt><code>&lt;iframe&gt;</code> with <code>srcdoc</code></dt>
+            <dd>
+              <iframe
+                srcdoc="<p>HTML content embedded directly in attribute!</p><button onclick='alert(&quot;Hello from iframe!&quot;)'>Click me</button>"
+                width="100%" height="100" title="Embedded HTML content"></iframe>
+              <small>Embed HTML directly without external file</small>
+            </dd>
+
+            <dt><code>&lt;iframe&gt;</code> with <code>sandbox</code></dt>
+            <dd>
+              <iframe src="about:blank" sandbox="allow-scripts allow-forms" width="100%" height="100"
+                title="Sandboxed iframe"></iframe>
+              <small>Sandboxed iframe for security - restricts what content can do</small>
+            </dd>
+
+            <dt><code>&lt;embed&gt;</code> and <code>&lt;object&gt;</code></dt>
+            <dd>
+              <object data="data:text/html,<p>Embedded object</p>" type="text/html" width="100%" height="100">
+                <p>Fallback content if object cannot be displayed</p>
+              </object>
+              <small>Generic embedding with fallback content</small>
+            </dd>
+          </dl>
+        </article>
+
+        <article>
+          <header>
+            <h3>Advanced Link Features</h3>
+          </header>
+          <dl>
+            <dt><code>rel</code> attribute values</dt>
+            <dd>
+              <ul>
+                <li><a href="#demo" rel="bookmark">Bookmark this section</a></li>
+                <li><a href="https://example.com/feed.xml" rel="alternate" type="application/rss+xml">RSS Feed</a></li>
+                <li><a href="mailto:test@example.com" rel="author">Contact Author</a></li>
+                <li><a href="https://license.example.com" rel="license">License</a></li>
+                <li><a href="https://example.com/prev" rel="prev">Previous Page</a></li>
+                <li><a href="https://example.com/next" rel="next">Next Page</a></li>
+                <li><a href="https://example.com" rel="nofollow">No Follow Link</a></li>
+                <li><a href="https://example.com" rel="noreferrer">No Referrer Link</a></li>
+                <li><a href="https://example.com" rel="noopener">No Opener (security)</a></li>
+                <li><a href="https://example.com" rel="external">External Link</a></li>
+                <li><a href="#help" rel="help">Help</a></li>
+              </ul>
+            </dd>
+
+            <dt><code>hreflang</code> - Language targeting</dt>
+            <dd>
+              <a href="https://example.com/fr" hreflang="fr" lang="fr">Version française</a> |
+              <a href="https://example.com/es" hreflang="es" lang="es">Versión española</a>
+              <small>Tells search engines which language version</small>
+            </dd>
+
+            <dt><code>type</code> - MIME type hints</dt>
+            <dd>
+              <a href="/document.pdf" type="application/pdf">PDF Document</a> |
+              <a href="/video.mp4" type="video/mp4">Video File</a>
+            </dd>
+
+            <dt><code>ping</code> - Link tracking (privacy concern but HTML5 feature)</dt>
+            <dd>
+              <a href="#demo" ping="/track?url=demo">Link with ping tracking</a>
+              <small>Browser sends POST request to ping URL when clicked</small>
+            </dd>
+
+            <dt>Anchor fragments</dt>
+            <dd>
+              <a href="#features">Jump to Features</a> |
+              <a href="#faq#details">Jump to FAQ details</a>
+              <small>Native smooth scrolling to page sections</small>
+            </dd>
+          </dl>
+        </article>
+
+        <article>
+          <header>
+            <h3>Additional ARIA and Accessibility Features</h3>
+          </header>
+          <dl>
+            <dt><code>aria-label</code>, <code>aria-labelledby</code>, <code>aria-describedby</code></dt>
+            <dd>
+              <button aria-label="Close dialog">×</button>
+              <button aria-labelledby="button-label">Action</button>
+              <span id="button-label" hidden>Perform main action</span>
+              <input type="text" aria-describedby="help-text" placeholder="Input with description">
+              <span id="help-text">This input accepts alphanumeric characters only</span>
+            </dd>
+
+            <dt><code>aria-live</code>, <code>aria-atomic</code>, <code>aria-relevant</code></dt>
+            <dd>
+              <div aria-live="polite" aria-atomic="true" aria-relevant="additions text">
+                <p>This region announces changes to screen readers</p>
+              </div>
+              <small>Used for dynamic content updates</small>
+            </dd>
+
+            <dt><code>aria-hidden</code> - Hide decorative elements</dt>
+            <dd>
+              <span aria-hidden="true">🎨</span> <span>Text content</span>
+              <small>Decorative emoji hidden from screen readers</small>
+            </dd>
+
+            <dt><code>aria-expanded</code>, <code>aria-controls</code></dt>
+            <dd>
+              <button aria-expanded="false" aria-controls="expandable-content">Toggle</button>
+              <div id="expandable-content" hidden>Content controlled by button</div>
+              <small>Describes relationship between controls and content</small>
+            </dd>
+
+            <dt><code>role</code> attribute</dt>
+            <dd>
+              <div role="alert">Important alert message</div>
+              <div role="status">Status update</div>
+              <div role="timer" aria-live="off">Timer: 00:00</div>
+              <div role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+              <small>Semantic roles for custom elements</small>
+            </dd>
+
+            <dt><code>aria-required</code>, <code>aria-invalid</code></dt>
+            <dd>
+              <input type="text" aria-required="true" aria-invalid="false" placeholder="Required field">
+              <small>Accessibility attributes for form validation state</small>
+            </dd>
+          </dl>
+        </article>
       </section>
 
       <section id="comparison" aria-labelledby="comparison-heading">
@@ -527,7 +998,7 @@
             <tr>
               <th scope="row">Bundle Size</th>
               <td>2.3<abbr title="Megabytes">MB</abbr>+</td>
-              <td>&lt;15<abbr title="Kilobytes">KB</abbr></td>
+              <td>&lt;57<abbr title="Kilobytes">KB</abbr></td>
             </tr>
             <tr>
               <th scope="row">Load Time</th>
@@ -631,7 +1102,41 @@
         <h2>HTML5 Feature Showcase</h2>
 
         <article>
-          <h3>All HTML5 Input Types</h3>
+          <header>
+            <h3>Complete Form Example with All Attributes</h3>
+          </header>
+          <form action="/submit" method="post" enctype="multipart/form-data" autocomplete="on" novalidate
+            target="_self">
+            <fieldset>
+              <legend>Complete Form Feature Showcase</legend>
+
+              <label for="autofocus-demo">Autofocus Input</label>
+              <input type="text" id="autofocus-demo" autofocus placeholder="Gets focus on load">
+
+              <label for="required-demo">Required Field</label>
+              <input type="text" id="required-demo" required placeholder="Cannot be empty">
+
+              <label for="readonly-demo">Readonly Field</label>
+              <input type="text" id="readonly-demo" readonly value="Cannot edit this">
+
+              <label for="disabled-demo">Disabled Field</label>
+              <input type="text" id="disabled-demo" disabled value="Cannot use this">
+
+              <label for="hidden-input">
+                Hidden Input
+                <input type="hidden" name="hidden" value="secret-value">
+              </label>
+
+              <button type="submit" formaction="/alternate" formmethod="get">Alternate Submit</button>
+              <button type="reset">Reset Form</button>
+            </fieldset>
+          </form>
+        </article>
+
+        <article>
+          <header>
+            <h3>All HTML5 Input Types</h3>
+          </header>
           <form action="#" method="get">
             <fieldset>
               <legend>Complete HTML5 Input Type Showcase</legend>
@@ -724,12 +1229,67 @@
 
       <section id="about">
         <h2>About This Manifesto</h2>
-        <blockquote cite="https://en.wikipedia.org/wiki/Dieter_Rams">
-          <p><strong>"Good design is as little design as possible."</strong></p>
-          <footer>— <cite>Dieter Rams</cite></footer>
-        </blockquote>
-        <p>This manifesto demonstrates that modern web development doesn't require complexity. <time
-            datetime="2025-12-15">Today</time>, we have better tools than ever—they're built into HTML5.</p>
+        <article itemscope itemtype="https://schema.org/Article">
+          <header>
+            <h3 itemprop="headline">The Philosophy of Simplicity</h3>
+            <p>By <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">HTML5
+                  Purist</span></span>,
+              Published <time itemprop="datePublished" datetime="2025-12-15">December 15, 2025</time></p>
+          </header>
+          <blockquote cite="https://en.wikipedia.org/wiki/Dieter_Rams" itemprop="citation">
+            <p><strong>"Good design is as little design as possible."</strong></p>
+            <footer>— <cite>Dieter Rams</cite></footer>
+          </blockquote>
+          <p itemprop="articleBody">This manifesto demonstrates that modern web development doesn't require complexity.
+            <time datetime="2025-12-15">Today</time>, we have better tools than ever—they're built into HTML5.</p>
+          <footer>
+            <p>Tags: <span itemprop="keywords">HTML5, Web Standards, Accessibility, Performance</span></p>
+          </footer>
+        </article>
+
+        <aside>
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>HTML5 has <strong>75+ native features</strong> that replace JavaScript libraries</li>
+            <li>Semantic HTML provides <strong>built-in accessibility</strong></li>
+            <li>Native form validation <strong>requires zero JavaScript</strong></li>
+            <li>Browser default styles are <strong>actually quite good</strong></li>
+            <li>Start with HTML5, enhance with CSS/JS only when needed</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section>
+        <h2>HTML5 Structure Power</h2>
+        <article>
+          <header>
+            <h3>Nested Articles Example</h3>
+            <p>HTML5 allows nested articles for complex content structures</p>
+          </header>
+
+          <article>
+            <header>
+              <h4>Main Article</h4>
+            </header>
+            <p>This is the main article content.</p>
+
+            <article>
+              <header>
+                <h5>Nested Article (Comment/Reply)</h5>
+              </header>
+              <p>Articles can nest! Perfect for comments, replies, or related content.</p>
+              <footer>
+                <p><small>Posted by <address>User Name</address> on <time datetime="2025-12-15T10:30:00">December 15,
+                      2025</time></small></p>
+              </footer>
+            </article>
+          </article>
+
+          <aside>
+            <h4>Related Content</h4>
+            <p>The <code>&lt;aside&gt;</code> element represents tangentially related content.</p>
+          </aside>
+        </article>
       </section>
     </article>
   </main>
@@ -743,7 +1303,7 @@
         <dt>Created</dt>
         <dd><time datetime="2025-12-15">December 15, 2025</time></dd>
         <dt>Page Size</dt>
-        <dd>~32<abbr title="Kilobytes">KB</abbr> (uncompressed, ~8<abbr title="Kilobytes">KB</abbr> gzipped)</dd>
+        <dd>~57<abbr title="Kilobytes">KB</abbr> (uncompressed, ~13<abbr title="Kilobytes">KB</abbr> gzipped)</dd>
         <dt>JavaScript Required</dt>
         <dd><strong>0 bytes</strong> (fully functional)</dd>
         <dt>CSS Required</dt>
@@ -755,7 +1315,7 @@
         <dt>Load Time</dt>
         <dd><strong>&lt;50<abbr title="Milliseconds">ms</abbr></strong></dd>
         <dt>HTML5 Features Used</dt>
-        <dd><strong>35+</strong> semantic elements and attributes</dd>
+        <dd><strong>75+</strong> semantic elements, attributes, and patterns</dd>
         <dt>Accessibility</dt>
         <dd><ins>Native HTML5 semantics</ins></dd>
         <dt>Keyboard Navigation</dt>
