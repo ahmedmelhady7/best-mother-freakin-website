@@ -13,16 +13,9 @@
   <meta name="color-scheme" content="light dark">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="format-detection" content="telephone=no">
-  <link rel="canonical" href="https://example.com/test.html">
-  <link rel="alternate" hreflang="en" href="https://example.com/test.html">
-  <link rel="alternate" hreflang="x-default" href="https://example.com/test.html">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/png" href="/favicon.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/manifest.json">
-  <link rel="preconnect" href="https://example.com">
-  <link rel="dns-prefetch" href="https://example.com">
-  <base target="_blank" href="https://example.com/">
+  <link rel="canonical" href="#">
+  <link rel="icon" type="image/svg+xml"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📄</text></svg>">
   <title>Best Motherfreaking Website - Pure HTML5</title>
 </head>
 
@@ -85,7 +78,7 @@
           <tbody>
             <tr>
               <th scope="row">Uncompressed Size</th>
-              <td>~57<abbr title="Kilobytes">KB</abbr></td>
+              <td>~59<abbr title="Kilobytes">KB</abbr></td>
             </tr>
             <tr>
               <th scope="row">JavaScript Dependencies</th>
@@ -324,10 +317,10 @@
               <legend>Native Validation Examples</legend>
 
               <label for="email-val">Email <abbr title="required">*</abbr></label>
-              <input type="email" id="email-val" name="email" required placeholder="user@example.com">
+              <input type="email" id="email-val" name="email" required placeholder="user@localhost">
 
               <label for="url-val">Website URL</label>
-              <input type="url" id="url-val" name="url" placeholder="https://example.com">
+              <input type="url" id="url-val" name="url" placeholder="https://localhost">
 
               <label for="tel-val">Phone Number</label>
               <input type="tel" id="tel-val" name="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890">
@@ -464,32 +457,36 @@
           <p>Native HTML5 media with captions and tracks:</p>
 
           <figure>
-            <figcaption>Audio Example (with fallback text)</figcaption>
+            <figcaption>Audio Example (HTML5 structure, no actual file)</figcaption>
             <audio controls>
-              <source src="audio.ogg" type="audio/ogg">
-              <source src="audio.mp3" type="audio/mpeg">
-              <p>Your browser doesn't support HTML5 audio. <a href="audio.mp3">Download the audio file</a> instead.</p>
+              <p>Your browser doesn't support HTML5 audio. This demonstrates the <code>&lt;audio&gt;</code> element
+                structure.</p>
             </audio>
+            <small>Note: Add actual audio sources when available</small>
           </figure>
 
           <figure>
-            <figcaption>Video Example</figcaption>
-            <video controls width="320" height="240" poster="poster.jpg">
-              <source src="video.webm" type="video/webm">
-              <source src="video.mp4" type="video/mp4">
-              <track kind="subtitles" src="subtitles.vtt" srclang="en" label="English" default>
-              <track kind="captions" src="captions.vtt" srclang="en" label="English Captions">
-              <p>Your browser doesn't support HTML5 video. <a href="video.mp4">Download the video</a> instead.</p>
+            <figcaption>Video Example (HTML5 structure, no actual file)</figcaption>
+            <video controls width="320" height="240">
+              <p>Your browser doesn't support HTML5 video. This demonstrates the <code>&lt;video&gt;</code> element
+                structure with <code>&lt;track&gt;</code> for captions.</p>
             </video>
+            <small>Note: Add actual video sources and track files when available. Supports: <code>&lt;source&gt;</code>,
+              <code>&lt;track&gt;</code> for subtitles/captions</small>
           </figure>
 
           <figure>
-            <figcaption>Picture Element for Responsive Images</figcaption>
+            <figcaption>Picture Element for Responsive Images (HTML5 structure)</figcaption>
             <picture>
-              <source media="(min-width: 800px)" srcset="large.jpg">
-              <source media="(min-width: 400px)" srcset="medium.jpg">
-              <img src="small.jpg" alt="Responsive image example" width="300" height="200">
+              <source media="(min-width: 800px)"
+                srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%23ddd' width='800' height='600'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='48' fill='%23999'%3ELarge%3C/text%3E%3C/svg%3E">
+              <source media="(min-width: 400px)"
+                srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23ddd' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='24' fill='%23999'%3EMedium%3C/text%3E%3C/svg%3E">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23ddd' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='18' fill='%23999'%3ESmall%3C/text%3E%3C/svg%3E"
+                alt="Responsive image example" width="300" height="200">
             </picture>
+            <small>Demonstrates <code>&lt;picture&gt;</code> and <code>&lt;source&gt;</code> with media queries</small>
           </figure>
         </article>
 
@@ -501,16 +498,16 @@
             <dt><code>&lt;address&gt;</code></dt>
             <dd>
               <address>
-                Contact: <a href="mailto:webmaster@example.com">webmaster@example.com</a><br>
-                Visit us at: example.com<br>
-                123 Web Street, Internet City
+                Contact: <a href="mailto:webmaster@localhost">webmaster@localhost</a><br>
+                Visit us at: localhost<br>
+                Built with pure HTML5
               </address>
             </dd>
 
             <dt><code>&lt;blockquote&gt;</code> with <code>cite</code></dt>
             <dd>
-              <blockquote cite="https://example.com/source">
-                <p>This is a blockquote with a citation source.</p>
+              <blockquote cite="#">
+                <p>This is a blockquote with a citation source attribute.</p>
               </blockquote>
             </dd>
 
@@ -694,7 +691,8 @@
             </dd>
 
             <dt><code>formaction</code>, <code>formmethod</code>, <code>formenctype</code>, <code>formtarget</code>,
-              <code>formnovalidate</code></dt>
+              <code>formnovalidate</code>
+            </dt>
             <dd>
               <form action="/default" method="post">
                 <input type="text" name="data" value="test">
@@ -713,7 +711,7 @@
 
               <label for="email-multiple">Multiple Email Addresses</label>
               <input type="email" id="email-multiple" name="emails" multiple
-                placeholder="email1@example.com, email2@example.com">
+                placeholder="email1@localhost, email2@localhost">
 
               <label for="select-multiple">Multiple Selection</label>
               <select id="select-multiple" name="options" multiple size="4">
@@ -798,49 +796,56 @@
           <dl>
             <dt><code>loading="lazy"</code> - Native lazy loading</dt>
             <dd>
-              <img src="https://via.placeholder.com/400x300" alt="Lazy loaded image" loading="lazy" width="400"
-                height="300">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0e0e0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='20' fill='%23999'%3ELazy Loaded%3C/text%3E%3C/svg%3E"
+                alt="Lazy loaded image" loading="lazy" width="400" height="300">
               <small>Images load only when scrolled into viewport</small>
             </dd>
 
             <dt><code>decoding="async"</code> - Async image decoding</dt>
             <dd>
-              <img src="https://via.placeholder.com/300x200" alt="Async decoded" decoding="async" width="300"
-                height="200">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23e0e0e0' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='18' fill='%23999'%3EAsync Decoded%3C/text%3E%3C/svg%3E"
+                alt="Async decoded" decoding="async" width="300" height="200">
               <small>Decodes image asynchronously without blocking</small>
             </dd>
 
             <dt><code>srcset</code> and <code>sizes</code> - Responsive images</dt>
             <dd>
-              <img src="https://via.placeholder.com/400"
-                srcset="https://via.placeholder.com/400 400w, https://via.placeholder.com/800 800w, https://via.placeholder.com/1200 1200w"
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0e0e0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='18' fill='%23999'%3E400w%3C/text%3E%3C/svg%3E"
+                srcset="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23e0e0e0' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='18' fill='%23999'%3E400w%3C/text%3E%3C/svg%3E 400w, data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='600'%3E%3Crect fill='%23e0e0e0' width='800' height='600'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='36' fill='%23999'%3E800w%3C/text%3E%3C/svg%3E 800w, data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='900'%3E%3Crect fill='%23e0e0e0' width='1200' height='900'%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='54' fill='%23999'%3E1200w%3C/text%3E%3C/svg%3E 1200w"
                 sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1200px" alt="Responsive image" width="400">
               <small>Browser chooses appropriate image size based on viewport</small>
             </dd>
 
             <dt><code>width</code> and <code>height</code> - Prevent layout shift</dt>
             <dd>
-              <img src="https://via.placeholder.com/200x150" alt="Fixed dimensions" width="200" height="150">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='150'%3E%3Crect fill='%23e0e0e0' width='200' height='150'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='14' fill='%23999'%3E200x150%3C/text%3E%3C/svg%3E"
+                alt="Fixed dimensions" width="200" height="150">
               <small>Reserves space before image loads (prevents Cumulative Layout Shift)</small>
             </dd>
 
             <dt><code>crossorigin</code> - CORS for images</dt>
             <dd>
-              <img src="https://via.placeholder.com/100" alt="CORS image" crossorigin="anonymous" width="100"
-                height="100">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23e0e0e0' width='100' height='100'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='12' fill='%23999'%3ECORS%3C/text%3E%3C/svg%3E"
+                alt="CORS image" crossorigin="anonymous" width="100" height="100">
               <small>Allows cross-origin images to be used with canvas</small>
             </dd>
 
             <dt><code>usemap</code> - Image maps</dt>
             <dd>
-              <img src="https://via.placeholder.com/300x200" alt="Image map" usemap="#imagemap" width="300"
-                height="200">
+              <img
+                src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='200'%3E%3Crect fill='%23e0e0e0' width='300' height='200'/%3E%3Ctext x='50%25' y='50%25' text-anchor='middle' dy='.3em' font-size='16' fill='%23999'%3EImage Map%3C/text%3E%3C/svg%3E"
+                alt="Image map" usemap="#imagemap" width="300" height="200">
               <map name="imagemap">
                 <area shape="rect" coords="0,0,150,100" href="#demo" alt="Top left area">
                 <area shape="rect" coords="150,0,300,100" href="#features" alt="Top right area">
                 <area shape="circle" coords="150,150,50" href="#faq" alt="Center circle">
               </map>
-              <small>Clickable regions on images - pure HTML5!</small>
+              <small>Clickable regions on images - pure HTML5! Click the areas to navigate.</small>
             </dd>
           </dl>
         </article>
@@ -884,36 +889,36 @@
             <dd>
               <ul>
                 <li><a href="#demo" rel="bookmark">Bookmark this section</a></li>
-                <li><a href="https://example.com/feed.xml" rel="alternate" type="application/rss+xml">RSS Feed</a></li>
-                <li><a href="mailto:test@example.com" rel="author">Contact Author</a></li>
-                <li><a href="https://license.example.com" rel="license">License</a></li>
-                <li><a href="https://example.com/prev" rel="prev">Previous Page</a></li>
-                <li><a href="https://example.com/next" rel="next">Next Page</a></li>
-                <li><a href="https://example.com" rel="nofollow">No Follow Link</a></li>
-                <li><a href="https://example.com" rel="noreferrer">No Referrer Link</a></li>
-                <li><a href="https://example.com" rel="noopener">No Opener (security)</a></li>
-                <li><a href="https://example.com" rel="external">External Link</a></li>
-                <li><a href="#help" rel="help">Help</a></li>
+                <li><a href="#" rel="alternate" type="application/rss+xml">RSS Feed (example)</a></li>
+                <li><a href="mailto:webmaster@localhost" rel="author">Contact Author</a></li>
+                <li><a href="#" rel="license">License (example)</a></li>
+                <li><a href="#features" rel="prev">Previous Section</a></li>
+                <li><a href="#faq" rel="next">Next Section</a></li>
+                <li><a href="#" rel="nofollow">No Follow Link (example)</a></li>
+                <li><a href="#" rel="noreferrer">No Referrer Link (example)</a></li>
+                <li><a href="#" rel="noopener">No Opener (security example)</a></li>
+                <li><a href="#" rel="external">External Link (example)</a></li>
+                <li><a href="#faq" rel="help">Help</a></li>
               </ul>
             </dd>
 
             <dt><code>hreflang</code> - Language targeting</dt>
             <dd>
-              <a href="https://example.com/fr" hreflang="fr" lang="fr">Version française</a> |
-              <a href="https://example.com/es" hreflang="es" lang="es">Versión española</a>
+              <a href="#" hreflang="fr" lang="fr">Version française (example)</a> |
+              <a href="#" hreflang="es" lang="es">Versión española (example)</a>
               <small>Tells search engines which language version</small>
             </dd>
 
             <dt><code>type</code> - MIME type hints</dt>
             <dd>
-              <a href="/document.pdf" type="application/pdf">PDF Document</a> |
-              <a href="/video.mp4" type="video/mp4">Video File</a>
+              <a href="#" type="application/pdf">PDF Document (example)</a> |
+              <a href="#" type="video/mp4">Video File (example)</a>
             </dd>
 
             <dt><code>ping</code> - Link tracking (privacy concern but HTML5 feature)</dt>
             <dd>
-              <a href="#demo" ping="/track?url=demo">Link with ping tracking</a>
-              <small>Browser sends POST request to ping URL when clicked</small>
+              <a href="#demo" ping="#demo">Link with ping tracking (example - uses fragment instead of external URL)</a>
+              <small>Browser sends POST request to ping URL when clicked (disabled for privacy in this example)</small>
             </dd>
 
             <dt>Anchor fragments</dt>
@@ -998,7 +1003,7 @@
             <tr>
               <th scope="row">Bundle Size</th>
               <td>2.3<abbr title="Megabytes">MB</abbr>+</td>
-              <td>&lt;57<abbr title="Kilobytes">KB</abbr></td>
+              <td>&lt;59<abbr title="Kilobytes">KB</abbr></td>
             </tr>
             <tr>
               <th scope="row">Load Time</th>
@@ -1151,10 +1156,10 @@
               <input type="tel" id="tel-input2" name="tel" pattern="[0-9-]+" placeholder="123-456-7890">
 
               <label for="url-input2">URL</label>
-              <input type="url" id="url-input2" name="url" placeholder="https://example.com">
+              <input type="url" id="url-input2" name="url" placeholder="https://localhost">
 
               <label for="email-input2">Email</label>
-              <input type="email" id="email-input2" name="email" placeholder="user@example.com">
+              <input type="email" id="email-input2" name="email" placeholder="user@localhost">
 
               <label for="password-input">Password</label>
               <input type="password" id="password-input" name="password" autocomplete="current-password">
@@ -1241,7 +1246,8 @@
             <footer>— <cite>Dieter Rams</cite></footer>
           </blockquote>
           <p itemprop="articleBody">This manifesto demonstrates that modern web development doesn't require complexity.
-            <time datetime="2025-12-15">Today</time>, we have better tools than ever—they're built into HTML5.</p>
+            <time datetime="2025-12-15">Today</time>, we have better tools than ever—they're built into HTML5.
+          </p>
           <footer>
             <p>Tags: <span itemprop="keywords">HTML5, Web Standards, Accessibility, Performance</span></p>
           </footer>
@@ -1303,7 +1309,7 @@
         <dt>Created</dt>
         <dd><time datetime="2025-12-15">December 15, 2025</time></dd>
         <dt>Page Size</dt>
-        <dd>~57<abbr title="Kilobytes">KB</abbr> (uncompressed, ~13<abbr title="Kilobytes">KB</abbr> gzipped)</dd>
+        <dd>~59<abbr title="Kilobytes">KB</abbr> (uncompressed, ~14<abbr title="Kilobytes">KB</abbr> gzipped)</dd>
         <dt>JavaScript Required</dt>
         <dd><strong>0 bytes</strong> (fully functional)</dd>
         <dt>CSS Required</dt>
